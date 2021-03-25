@@ -13,7 +13,7 @@ date:   2021-03-16 23:15:05 +0100
                      image: true 
                 {% endhighlight %}
 I immediately fell in love with it, and started looking for a UI theme best fitting my needs. And actually this was the hardest part - took me two days. That is how I found 'Minimal Mistakes'. This is basically a theme for Jekyll, but actually much more than just a theme. It is like a whole sub - framework in my opinion. Here you can basicaly customise your whole site using yaml configuraitions, and you do not even have to touch html. You can check out 'Minimal Mistakes' [here][mistakes].  
-![coffe](/assets/img/coffee.jpg){: style="border-radius: 5px"}
+![coffe](/greg_portfolio/assets/img/coffee.jpg){: style="border-radius: 5px"}
 
 [mátyás]: https://budavariam.github.io
 [jekyll]: https://jekyllrb.com
