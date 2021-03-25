@@ -30,7 +30,7 @@ twitter_username: gregdev8
 github_username:  gerkov77
 
 # Build settings
-theme: minimal-mistakes-jekyll
+remote_theme: "mmistakes/minimal-mistakes@4.22.0"
 minimal_mistakes_skin: "dark"
 
 
