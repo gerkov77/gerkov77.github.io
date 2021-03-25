@@ -5,6 +5,7 @@
 layout: posts
 author_profile: true
 title: Welcome!
+permalink: /
 ---
 <!-- ![Sunset](/assets/img/greg.jpg){:style="border-radius: 30px"} -->
 <!-- Hello and Welcome!<br><br> -->
