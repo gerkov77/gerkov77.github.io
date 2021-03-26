@@ -21,7 +21,7 @@
 title: Greg's developer site
 email: kovacsgergo77@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-Gergely Kovács's developer site and a blog about
+Gergely Kovacs's developer site and a blog about
 his experiences in app- and web-development technologies in addition to publishing
 a portfolio of recent projects.
 baseurl: "gerkov77.github.io" # the subpath of your site, e.g. /blog
