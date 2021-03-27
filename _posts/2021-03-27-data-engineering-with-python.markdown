@@ -3,6 +3,10 @@ layout: posts
 title:  "Data engineering with Python"
 categories: coding
 date: 2021-03-27 21:06:00 +0100
+author_profile: true
+read_time: true
+comments: true
+share: true
 ---
 
 In the first wave of the covid-19 pandemic I came across a site called [DataCamp][datacamp]. They offered a
@@ -17,8 +21,10 @@ import matplotlib.pyplot as plt
  Next thing we need is a data source. You can search Github for any kind of data APIs, just make a search on the desired data, and choose the best one for you. I stuck with the Our World In Data [website's][owid] data in comma separated values. So I went: {% highlight python %} data = pd.read_csv("https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv") {% endhighlight %}
 Next you have to analize the data somehow. Try to look inside. In the 
 {% highlight python %} print(data.head()) {% endhighlight %}
-That will try to print out the header and the first five rows of the data. We can see that the rows are representing the country datas column by column, and each country has rows for each day passed since the outbreak of the pandemic. The problem is, this data is too huge to see all the columns. Try to get all the data we have for each country:  {% highlight python %}  for c in data:
-  print(c) {% endhighlight %} Now you get all the column names. Just out of curiosity, count the columns. let's make a counter variable and iterate through them. {% highlight python %} 
+That will try to print out the header and the first five rows of the data. We can see that the rows are representing the country datas column by column, and each country has rows for each day passed since the outbreak of the pandemic. The problem is, this data is too huge to see all the columns. Try to get all the data we have for each country:  {% highlight python %}  
+for c in data:
+    print(c) 
+  {% endhighlight %} Now you get all the column names. Just out of curiosity, count the columns. let's make a counter variable and iterate through them. {% highlight python %} 
   counter = 0
   for c in data:
       counter += 1
@@ -26,12 +32,12 @@ That will try to print out the header and the first five rows of the data. We ca
 Then:
 {% highlight python %}
 print(counter)
-//61
+#61
 {% endhighlight %}
 Now we know that we are dealing with 61 columns of data. How we know, how many entries are there for all the countries? It is easier just print out the shape of the database. 
 {% highlight python %}
 print(data.shape)
-//(77549, 61)
+#(77549, 61)
 {% endhighlight %}
 Ok, now we know there are 61 columns for 77549 rows. Makes sense, because that includes more than a year of daily data for each country on Earth. We can clearly see, that dealing with a data of that scale would be almost impossible without writing scripts. Not to mention visualising it.
 Without going in all the details you can do with these frameworks, let's just see a very simple sample  visualizing some segment of our data. When we printed out all the columns, we saw that there is one column for location. That means we can filter this whole database for one countries data.
