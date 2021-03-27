@@ -128,7 +128,7 @@ plt.xticks(np.arange(0, len(uk_data['date']), sample_frequency), trimmedDates(uk
 plt.show()
 
 {% endhighlight %}
-Run the project, and you should get something like the following: [article_plot]({{baseUrl}}/assets/img/article_plot.png)
+Run the project, and you should get something like the following: ![article_plot]({{baseUrl}}/assets/img/article_plot.png)
 Thank You for reading! Happy Coding!
 
 
