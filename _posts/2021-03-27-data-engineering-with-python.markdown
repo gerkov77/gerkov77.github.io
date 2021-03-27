@@ -2,7 +2,7 @@
 layout: posts
 title:  "Data engineering with Python"
 categories: coding
-date: true
+date: 2021-03-27 21:06:00 +0100
 ---
 
 In the first wave of the covid-19 pandemic I came across a site called [DataCamp][datacamp]. They offered a
