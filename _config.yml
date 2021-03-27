@@ -71,7 +71,17 @@ defaults:
       path: "assets/img"
     values:
       image: true 
-    
+    defaults:
+  - scope:
+      path: "posts"
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.
