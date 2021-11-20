@@ -4,5 +4,5 @@ title: About
 permalink: /about/
 ---
 My name is Gergely Kovács, 
- <br> i am a freelance developer and professional musician/guitar teacher.
- My sofware development skills lay mainly in iOS, Xcode, Swift. I was experimenting with Android, some Python, datascience, server side programming as well. I am familiar with JavaScript. I am using git as a versioning tool.
+ <br>I am currently working at a startup as an iOS developer and teaching at a music school as a full time guitar teacher.
+
