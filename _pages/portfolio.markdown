@@ -5,10 +5,4 @@ title: Portfolio
 permalink: /portfolio/
 
 ---
-* [GitHub Repos](https://github.com/gerkov77/GithubRepos)
- <p>A Demo App written in SwiftUI
- <br>
- Year: 2022
- <br>
- Language used: Swift
- </p>
+* [GitHub Repos](https://github.com/gerkov77/GithubRepos) A Demo App written in SwiftUI
