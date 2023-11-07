@@ -10,7 +10,7 @@ share: true
 ---
 
 In my current work as an iOS developer I have found it kind of hard to customize  Sliders im SwiftUI in a convenient way.
-So as it is relatively easy to implement a new control in SwiftUI, I have decided to give it a shot.  ( You can download the sourcecode for the project [Here](https://gist.github.com/gerkov77/30adc7333177c13629f0a749363a34de) )
+So as it is relatively easy to implement a new control in SwiftUI, I have decided to give it a shot.  ( You can download the source code for the project [Here](https://gist.github.com/gerkov77/30adc7333177c13629f0a749363a34de) )
 My process for this project was the following:   
 
 1. Creating the basic slider skeleton - a bar with a draggable handle
@@ -371,7 +371,7 @@ sliderValue = (position!.x * scalelength) / r.size.width + range.lowerBound
 
  Happy Coding!
 
- 
+
 
 
 
