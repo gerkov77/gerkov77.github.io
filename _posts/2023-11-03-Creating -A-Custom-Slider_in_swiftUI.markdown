@@ -20,6 +20,10 @@ My process for this project was the following:
 5. Add initializers for cusomizing the appearance
 6. Add a Range initializer - for setting min and max values, and make the slider to update the values whithin that range instead of just 0.0 - to 1.0
 
+Let's grab a coffe and get to work!  
+
+![coffecat]({{baseurl}}/assets/img/coffecat.jpg){: style="border-radius: 5px"}  
+
 ## 1. Creating The Basic Slider Skeleton
 
 I have started with the basic shapes.  
