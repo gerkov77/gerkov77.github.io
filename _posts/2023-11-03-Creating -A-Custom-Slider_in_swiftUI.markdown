@@ -353,8 +353,12 @@ Also update the last slider value in onEnded:
  {% endhighlight %} 
 
  We also have to update the lasSliderValue with sliderValue in onAppear, to have correct values!
- Run the app now! As you see it doesn't seem to work just right!  
- The handle runs offscreen and we got a purple warning, saying 'Invalid frame dimension (negative or non-finite)' at the handle's position midifier. 
+ Run the app now!  
+ Fail!    
+ As you see it doesn't seem to work just right!  
+ The handle runs offscreen and we got a purple warning, saying 'Invalid frame dimension (negative or non-finite)' at the handle's position midifier.  
+ We have to reverse our thinking.  
+ Before we were getting the handle positions from the slider value - we used a calculation in the onAppear function. We have to grab that calculation as an equation, and rearrange it to get the slider value on the right side instead of the position.
  So let's set the minimum and maximum positions correctly in onChanged!
 
 {% highlight swift %} 
@@ -369,7 +373,105 @@ sliderValue = (position!.x * scalelength) / r.size.width + range.lowerBound
 
  That' pretty much it. The complete source code is available [here!](https://gist.github.com/gerkov77/30adc7333177c13629f0a749363a34de)  
 
- Happy Coding!
+{% highlight swift %}
+//
+//  CustomSlider.swift
+//  CustomSlider
+//
+//  Created by Gergely Kovacs on 2023. 10. 31..
+//
+import SwiftUI
+
+
+struct CustomSlider: View {
+
+let range: Range<Double>
+@Binding var sliderValue: Double
+let configuration: Configuration
+
+@State private var position = CGPoint(x: 0.0, y: 0.0)
+@State private var lastPosition: CGPoint?
+@State private var lastSliderValue: Double = 0.0
+
+init(range: Range<Double>,
+ sliderValue: Binding<Double>,
+  configuration: Configuration = Configuration()) {
+        self.range = range
+        _sliderValue = sliderValue
+        self.configuration = configuration
+    }
+
+var body: some View {
+        GeometryReader { reader in
+            ZStack {
+                Capsule()
+                    .frame(width: reader.size.width, height: 2)
+                    .foregroundStyle(configuration.offTintColor)
+                    .overlay {
+                        Capsule()
+                            .frame(width: position.x)
+                            .frame(maxWidth: reader.size.width, alignment: .leading)
+                            .foregroundStyle(configuration.onTintColor)
+                        }
+
+                GeometryReader { r in
+                    Circle()
+                        .frame(width: configuration.handleSize)
+                        .foregroundStyle(configuration.handleColor)
+                        .position(position)
+                        .gesture(
+                    DragGesture()
+                            .onChanged({ value in
+                                let minPosition = min(lastPosition!.x + value.translation.width, r.size.width)
+                                let maxPosition = max(minPosition, r.frame(in: .local).origin.x)
+
+                                position.x = maxPosition
+
+                                sliderValue = (position.x * scalelength) / r.size.width + range.lowerBound
+                                })
+                            .onEnded({ value in
+                                lastPosition?.x = position.x
+                                lastSliderValue = sliderValue
+                                })
+                        )
+                        .onAppear {
+                            position = CGPoint(
+                                x: r.size.width * (sliderValue - range.lowerBound) / scalelength ,
+                                y: r.size.height/2)
+                            lastPosition = position
+                            lastSliderValue = sliderValue
+                        }
+                }
+            }
+        }
+    }
+}
+
+extension CustomSlider {
+struct Configuration {
+var onTintColor: Color = .blue
+var offTintColor: Color = .black
+var handleSize: CGFloat = 10
+var handleColor: Color = .white
+    }
+}
+
+// MARK: Helpers
+extension CustomSlider {
+private var scalelength: CGFloat {
+        range.upperBound - range.lowerBound
+    }
+}
+
+#Preview {
+    ZStack {
+        Color.yellow
+CustomSlider(range: -1.0..<1.0, sliderValue: .constant(0.5))
+    }
+}
+{% endhighlight %}  
+
+Happy Coding!
 
 
 
